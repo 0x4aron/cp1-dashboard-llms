@@ -1,36 +1,40 @@
-# CP1 — Dashboard de Dados e LLMs (base de estudo)
+# CP1 — Portfólio de Dados e LLMs
 
-Este projeto é um ponto de partida para estudar Streamlit e estruturar o CP1. Antes de usar qualquer conteúdo em uma entrega, complete os textos marcados como `TODO`, valide os cálculos e escreva suas próprias interpretações.
+Dashboard profissional desenvolvido em Python e Streamlit para o CP1 de **Data Science and Statistical Computing**. O projeto conecta o objetivo profissional de César Aaron Herrera — engenharia de dados e aplicações de LLMs no setor financeiro — a um estudo de mercado baseado no Open LLM Leaderboard.
 
-Repositório público: [0x4aron/cp1-dashboard-llms](https://github.com/0x4aron/cp1-dashboard-llms).
+**Dashboard publicado:** [cesar-aaron-llms.streamlit.app](https://cesar-aaron-llms.streamlit.app)
 
-## Tema e pergunta
+**Repositório:** [0x4aron/cp1-dashboard-llms](https://github.com/0x4aron/cp1-dashboard-llms)
 
-**Tema:** estudo de mercado de LLMs open-weight para aplicações de dados no setor financeiro.
+## Estrutura do dashboard
 
-**Pergunta:** modelos menores conseguem entregar desempenho competitivo para projetos que precisam equilibrar qualidade e recursos computacionais?
+- **Quem sou eu:** posicionamento profissional, foco de carreira e proposta de valor.
+- **Qualificações:** formação, experiência, cursos e projetos relevantes.
+- **Skills:** competências técnicas, humanas e idiomas.
+- **Análise de Dados:** estatísticas descritivas, filtros, distribuição, correlação, faixas de porte, benchmarks, síntese e limitações.
 
-## Dados
+Cada área utiliza uma rota própria para manter a navegação estável no Streamlit Community Cloud.
 
-Use uma cópia local e datada do [dataset `open-llm-leaderboard/contents`](https://huggingface.co/datasets/open-llm-leaderboard/contents) do Hugging Face. A análise precisa identificar a data de extração, a fonte e as limitações: benchmarks gerais não são uma medição direta de qualidade em tarefas financeiras ou em produção.
+## Pergunta de análise
 
-Para gerar uma cópia local e normalizada, execute:
+> Modelos menores conseguem entregar desempenho competitivo para projetos que precisam equilibrar qualidade e recursos computacionais?
 
-```bash
-python fetch_and_prepare_dataset.py
-```
+O dashboard apresenta evidências para uma triagem inicial de modelos open-weight. A análise não substitui avaliações em tarefas financeiras reais e não interpreta correlação como causalidade.
 
-O processo cria `data/llm_leaderboard.csv` e `data/source_metadata.json`. A
-segunda contém a fonte, a data de extração e o número de linhas obtidas. Em
-seguida, revise a base e remova apenas registros que você consiga justificar.
+## Dados e preparação
 
-O CSV resultante tem, entre outras, estas colunas normalizadas:
+A cópia local e datada foi obtida do dataset público [`open-llm-leaderboard/contents`](https://huggingface.co/datasets/open-llm-leaderboard/contents), no Hugging Face.
 
-```text
-model_name,organization,parameters_b,average_score,benchmark_1,benchmark_2,license,release_date
-```
+- 4.576 registros brutos.
+- 4.497 registros após normalização.
+- 4.487 registros válidos para a análise de porte e score.
+- 0 duplicidades exatas na base normalizada.
+- Campos principais: modelo, organização, parâmetros, score médio, seis benchmarks, licença, data, CO₂ estimado e tipo.
 
-Abra o arquivo `data/llm_leaderboard_template.csv` como referência de formato. Não use os dados de exemplo como análise final.
+O script [`fetch_and_prepare_dataset.py`](fetch_and_prepare_dataset.py) reproduz a coleta e cria:
+
+- `data/llm_leaderboard.csv`
+- `data/source_metadata.json`
 
 ## Execução local
 
@@ -41,19 +45,22 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Checklist de autoria e apresentação
+## Decisões de qualidade
 
-- Reescrevi as seções de perfil, qualificações e skills com informações que posso defender.
-- Registrei a fonte e a data de obtenção da base.
-- Verifiquei dados nulos, duplicados e unidades das colunas.
-- Expliquei média, mediana, dispersão e correlação sem inferir causalidade.
-- Registrei ao menos uma limitação da análise.
-- Preparei a apresentação coringa com prints, pergunta, método, gráficos e conclusões.
+- Tema claro definido em `.streamlit/config.toml` para garantir contraste consistente.
+- Base carregada sob demanda e mantida em cache.
+- Registros com porte não positivo ou score inválido não entram nos cálculos.
+- Filtros de licença, porte e score atualizam indicadores e gráficos.
+- Gráficos usam paleta consistente, fundo claro e textos de alto contraste.
+- Fonte, data de extração, tratamento e limitações ficam documentados no próprio app.
 
-O arquivo [presentation_coringa.md](presentation_coringa.md) traz um roteiro de 10 slides para essa apresentação. Use-o como estrutura e complete as interpretações com suas próprias palavras.
+## Entregáveis
 
-## Publicação
+- Link público do dashboard.
+- Código-fonte e base no repositório.
+- Arquivo ZIP do projeto.
+- Roteiro da apresentação coringa em [`presentation_coringa.md`](presentation_coringa.md).
 
-Depois de validar localmente, crie você mesmo um repositório GitHub com `app.py`, `requirements.txt` e a base permitida. Em seguida, conecte-o à sua conta no [Streamlit Community Cloud](https://share.streamlit.io/) e escolha `app.py` como arquivo principal. Não envie credenciais, dados pessoais ou dados confidenciais ao repositório. Veja o passo a passo completo em [DEPLOYMENT.md](DEPLOYMENT.md).
+## Limitações
 
-O arquivo `.gitignore` já evita o envio do ambiente virtual e de arquivos temporários. A pasta `data/` deve permanecer no projeto se a base fizer parte do entregável solicitado pelo professor.
+Os benchmarks são gerais e dependem do protocolo de avaliação. Número de parâmetros não representa sozinho custo, latência ou qualidade em produção. Uma decisão no setor financeiro também exige avaliação de segurança, privacidade, licença, dados do domínio e revisão humana.

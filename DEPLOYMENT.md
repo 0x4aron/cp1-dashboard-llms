@@ -1,5 +1,7 @@
 # Publicação no Streamlit Community Cloud
 
+Aplicação publicada em: <https://cesar-aaron-llms.streamlit.app>
+
 Esta etapa precisa ser feita pela conta do aluno, pois ela vincula o aplicativo ao seu GitHub e cria uma URL pública.
 
 ## 1. Teste local
