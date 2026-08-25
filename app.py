@@ -361,7 +361,7 @@ def render_profile():
     st.markdown(
         """
         <div class="hero">
-            <div class="hero-eyebrow">Engenharia de Software · Dados · Inteligência Artificial</div>
+            <div class="hero-eyebrow">Engenharia de Software · FIAP · 2ESPH · RM 565398</div>
             <div class="hero-name">César Aaron Herrera</div>
             <div class="hero-role">
                 Estudante da FIAP com experiência prática em suporte e infraestrutura de TI,
@@ -698,6 +698,7 @@ def render_analysis_page():
 
 
 st.sidebar.title("César Aaron")
+st.sidebar.caption("2ESPH · RM 565398")
 st.sidebar.caption("Portfólio · Dados e IA")
 
 navigation = st.navigation(

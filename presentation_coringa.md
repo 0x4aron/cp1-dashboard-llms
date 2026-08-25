@@ -1,13 +1,13 @@
 # CP1 — Dashboard profissional: Dados e LLMs
 
-> Roteiro pronto para apresentação. Complete apenas a turma e inclua as capturas
-> indicadas. Antes da entrega, confirme que você consegue explicar os números e as limitações.
+> Roteiro pronto para apresentação. Inclua as capturas indicadas e, antes da entrega,
+> confirme que você consegue explicar os números e as limitações.
 
 ## Slide 1 — Capa
 
 - **Título:** Desempenho e eficiência de LLMs open-weight
 - **Subtítulo:** Um estudo de mercado para aplicações de dados e IA no setor financeiro
-- **Aluno:** César Aaron Herrera · [turma] · 25/08/2026
+- **Aluno:** César Aaron Herrera · Turma 2ESPH · RM 565398 · 25/08/2026
 
 ## Slide 2 — Contexto profissional
 

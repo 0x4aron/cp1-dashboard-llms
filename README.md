@@ -2,6 +2,8 @@
 
 Dashboard profissional desenvolvido em Python e Streamlit para o CP1 de **Data Science and Statistical Computing**. O projeto conecta o objetivo profissional de César Aaron Herrera — engenharia de dados e aplicações de LLMs no setor financeiro — a um estudo de mercado baseado no Open LLM Leaderboard.
 
+**Aluno:** César Aaron Herrera · **Turma:** 2ESPH · **RM:** 565398
+
 **Dashboard publicado:** [cesar-aaron-llms.streamlit.app](https://cesar-aaron-llms.streamlit.app)
 
 **Repositório:** [0x4aron/cp1-dashboard-llms](https://github.com/0x4aron/cp1-dashboard-llms)
