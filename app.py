@@ -191,7 +191,7 @@ def render_analysis(dataframe: pd.DataFrame | None):
             title="Porte do modelo × desempenho médio",
             labels={"parameters_b": "Parâmetros (bilhões)", "average_score": "Score médio"},
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     with right:
         top_models = filtered.nlargest(10, "average_score").sort_values("average_score")
         fig = px.bar(
@@ -203,7 +203,7 @@ def render_analysis(dataframe: pd.DataFrame | None):
             title="Top 10 modelos por score médio",
             labels={"average_score": "Score médio", "model_name": "Modelo", "parameters_b": "Parâmetros (B)"},
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     benchmark_columns = [c for c in dataframe.columns if c.startswith("benchmark_")]
     if benchmark_columns:
@@ -211,7 +211,7 @@ def render_analysis(dataframe: pd.DataFrame | None):
         numeric_benchmarks = filtered[benchmark_columns].apply(pd.to_numeric, errors="coerce")
         st.plotly_chart(
             px.imshow(numeric_benchmarks.corr(), text_auto=".2f", title="Correlação entre benchmarks"),
-            use_container_width=True,
+            width="stretch",
         )
 
     st.subheader("Conclusão do estudante")
@@ -221,10 +221,9 @@ def render_analysis(dataframe: pd.DataFrame | None):
         height=150,
     )
     st.subheader("Dados filtrados")
-    st.dataframe(filtered, use_container_width=True, hide_index=True)
+    st.dataframe(filtered, width="stretch", hide_index=True)
 
 
-data = load_data()
 st.sidebar.title("Portfólio profissional")
 st.sidebar.caption("Dados · IA · LLMs")
 page = st.sidebar.radio("Navegação", ["Quem sou eu", "Qualificações", "Skills", "Análise de Dados"])
@@ -236,4 +235,5 @@ elif page == "Qualificações":
 elif page == "Skills":
     render_skills()
 else:
-    render_analysis(data)
+    # A base só é lida quando a área analítica é aberta, reduzindo o tempo da tela inicial.
+    render_analysis(load_data())
