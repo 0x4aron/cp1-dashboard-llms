@@ -85,7 +85,14 @@ st.markdown(
             box-shadow: 0 8px 25px rgba(15,23,42,.055);
         }
         [data-testid="stMetricLabel"] p { color: #5B6475 !important; font-weight: 650; }
-        [data-testid="stMetricValue"] { color: #172033; }
+        [data-testid="stMetricValue"] {
+            color: #172033;
+            font-size: clamp(1.45rem, 2.15vw, 1.9rem);
+            line-height: 1.15;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
+        }
         [data-testid="stMetricDelta"] { white-space: normal; }
         [data-testid="stDataFrame"], [data-testid="stPlotlyChart"] {
             background: #FFFFFF;
@@ -347,7 +354,7 @@ def correlation_label(value: float) -> str:
     else:
         strength = "muito forte"
     direction = "positiva" if value >= 0 else "negativa"
-    return f"{strength} e {direction}"
+    return f"{direction} {strength}"
 
 
 def render_profile():
@@ -532,7 +539,12 @@ def render_analysis(dataframe: pd.DataFrame | None):
     metrics[1].metric("Média", f"{mean_score:.2f}")
     metrics[2].metric("Mediana", f"{median_score:.2f}")
     metrics[3].metric("Desvio-padrão", f"{standard_deviation:.2f}" if pd.notna(standard_deviation) else "n/d")
-    metrics[4].metric("Correlação", f"{correlation:.2f}" if pd.notna(correlation) else "n/d", correlation_label(correlation))
+    metrics[4].metric(
+        "Correlação",
+        f"{correlation:.2f}" if pd.notna(correlation) else "n/d",
+        correlation_label(correlation),
+        delta_color="off",
+    )
     st.caption(f"Maior score no recorte: {best['model_name']} · {best['average_score']:.2f} pontos")
 
     st.markdown('<div class="section-label">Porte do modelo e desempenho</div>', unsafe_allow_html=True)
@@ -692,7 +704,7 @@ st.sidebar.caption("Portfólio · Dados e IA")
 
 navigation = st.navigation(
     [
-        st.Page(render_profile, title="Quem sou eu", icon="👤", url_path="perfil", default=True),
+        st.Page(render_profile, title="Quem sou eu", icon="👤", default=True),
         st.Page(render_qualifications, title="Qualificações", icon="🎓", url_path="qualificacoes"),
         st.Page(render_skills, title="Skills", icon="🧩", url_path="skills"),
         st.Page(render_analysis_page, title="Análise de Dados", icon="📊", url_path="analise-de-dados"),
