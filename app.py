@@ -224,16 +224,22 @@ def render_analysis(dataframe: pd.DataFrame | None):
     st.dataframe(filtered, width="stretch", hide_index=True)
 
 
-st.sidebar.title("Portfólio profissional")
-st.sidebar.caption("Dados · IA · LLMs")
-page = st.sidebar.radio("Navegação", ["Quem sou eu", "Qualificações", "Skills", "Análise de Dados"])
-
-if page == "Quem sou eu":
-    render_profile()
-elif page == "Qualificações":
-    render_qualifications()
-elif page == "Skills":
-    render_skills()
-else:
+def render_analysis_page():
+    """Carrega a base somente ao acessar a rota analítica."""
     # A base só é lida quando a área analítica é aberta, reduzindo o tempo da tela inicial.
     render_analysis(load_data())
+
+
+st.sidebar.title("Portfólio profissional")
+st.sidebar.caption("Dados · IA · LLMs")
+
+navigation = st.navigation(
+    [
+        st.Page(render_profile, title="Quem sou eu", url_path="perfil", default=True),
+        st.Page(render_qualifications, title="Qualificações", url_path="qualificacoes"),
+        st.Page(render_skills, title="Skills", url_path="skills"),
+        st.Page(render_analysis_page, title="Análise de Dados", url_path="analise-de-dados"),
+    ],
+    position="sidebar",
+)
+navigation.run()
