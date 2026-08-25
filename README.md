@@ -8,6 +8,14 @@ Dashboard profissional desenvolvido em Python e Streamlit para o CP1 de **Data S
 
 **Repositório:** [0x4aron/cp1-dashboard-llms](https://github.com/0x4aron/cp1-dashboard-llms)
 
+## Entregáveis acadêmicos
+
+- Link público do dashboard acima.
+- Código-fonte, dependências e configuração do Streamlit.
+- Base local em `data/llm_leaderboard.csv` e metadados da fonte.
+- Apresentação coringa em PowerPoint na pasta `deliverables/`.
+- Roteiro editável em `presentation_coringa.md`.
+
 ## Estrutura do dashboard
 
 - **Quem sou eu:** posicionamento profissional, foco de carreira e proposta de valor.

@@ -1,7 +1,8 @@
 # CP1 — Dashboard profissional: Dados e LLMs
 
-> Roteiro pronto para apresentação. Inclua as capturas indicadas e, antes da entrega,
-> confirme que você consegue explicar os números e as limitações.
+> Roteiro de apoio da apresentação. A versão PowerPoint em `deliverables/` já inclui
+> as capturas e os gráficos; antes da entrega, confirme que você consegue explicar
+> os números e as limitações.
 
 ## Slide 1 — Capa
 
