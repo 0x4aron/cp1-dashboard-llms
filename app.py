@@ -539,13 +539,11 @@ def render_analysis(dataframe: pd.DataFrame | None):
     metrics[1].metric("Média", f"{mean_score:.2f}")
     metrics[2].metric("Mediana", f"{median_score:.2f}")
     metrics[3].metric("Desvio-padrão", f"{standard_deviation:.2f}" if pd.notna(standard_deviation) else "n/d")
-    metrics[4].metric(
-        "Correlação",
-        f"{correlation:.2f}" if pd.notna(correlation) else "n/d",
-        correlation_label(correlation),
-        delta_color="off",
+    metrics[4].metric("Correlação", f"{correlation:.2f}" if pd.notna(correlation) else "n/d")
+    st.caption(
+        f"Maior score no recorte: {best['model_name']} · {best['average_score']:.2f} pontos · "
+        f"Leitura da correlação: {correlation_label(correlation)}"
     )
-    st.caption(f"Maior score no recorte: {best['model_name']} · {best['average_score']:.2f} pontos")
 
     st.markdown('<div class="section-label">Porte do modelo e desempenho</div>', unsafe_allow_html=True)
     scatter = px.scatter(
