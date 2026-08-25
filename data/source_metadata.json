@@ -1,0 +1,9 @@
+{
+  "source_dataset": "open-llm-leaderboard/contents",
+  "source_url": "https://huggingface.co/datasets/open-llm-leaderboard/contents",
+  "api_url": "https://datasets-server.huggingface.co/rows",
+  "extracted_at_utc": "2026-08-25T12:59:33.157653+00:00",
+  "raw_records": 4576,
+  "normalized_records": 4497,
+  "notes": "A base mede benchmarks gerais; não representa validação específica em domínio financeiro."
+}

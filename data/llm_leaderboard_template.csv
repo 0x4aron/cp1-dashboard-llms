@@ -1,0 +1,3 @@
+model_name,organization,parameters_b,average_score,benchmark_1,benchmark_2,license,release_date
+Modelo A,Organizacao exemplo,7,62.5,60.1,64.9,apache-2.0,2024-01-01
+Modelo B,Organizacao exemplo,13,68.2,66.7,69.7,mit,2024-04-15
