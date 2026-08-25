@@ -2,6 +2,8 @@
 
 Este projeto é um ponto de partida para estudar Streamlit e estruturar o CP1. Antes de usar qualquer conteúdo em uma entrega, complete os textos marcados como `TODO`, valide os cálculos e escreva suas próprias interpretações.
 
+Repositório público: [0x4aron/cp1-dashboard-llms](https://github.com/0x4aron/cp1-dashboard-llms).
+
 ## Tema e pergunta
 
 **Tema:** estudo de mercado de LLMs open-weight para aplicações de dados no setor financeiro.

@@ -7,6 +7,16 @@ import streamlit as st
 
 
 st.set_page_config(page_title="Portfólio | Dados e LLMs", page_icon="📊", layout="wide")
+st.markdown(
+    """
+    <style>
+        .stApp { background: #f7f9fc; }
+        [data-testid="stMetricValue"] { color: #175cd3; }
+        h1, h2, h3 { color: #101828; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 DATA_PATH = Path("data/llm_leaderboard.csv")
 METADATA_PATH = Path("data/source_metadata.json")
@@ -215,6 +225,8 @@ def render_analysis(dataframe: pd.DataFrame | None):
 
 
 data = load_data()
+st.sidebar.title("Portfólio profissional")
+st.sidebar.caption("Dados · IA · LLMs")
 page = st.sidebar.radio("Navegação", ["Quem sou eu", "Qualificações", "Skills", "Análise de Dados"])
 
 if page == "Quem sou eu":
